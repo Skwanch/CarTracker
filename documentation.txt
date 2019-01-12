@@ -1,0 +1,16 @@
+For this project, I modified IndexMinPQ from the textbook. 
+
+Modifications to the program were tailored toward being able to traverse and update the queues for price, mileage, and cars. 
+
+Indirection was achieved via a HashMap of VIN numbers to cars.
+
+Use of the HashMap allows for constant time location of any object in the queue. Retrieval of lowest price/mileage car can be achieved in constant time, by simply returning the first object in the queue. Updating, Removal and Insertion all take theta (lg n) runtime mainly due to the sink/swim functions needed to traverse the height of the tree.
+Finding the lowest price/mileage car is also achieved in theta (lg n) by utilizing the level-order array representation of the binary heap and traversing it level by level, where 2*j is the left child and 2*j + 1 is the right child. 
+
+Memory usage will depend on the number of cars the user ultimately inputs. Since my resize operation doubles the size of the queue, there is potential for wasted space if the user ends up only inputting max + 1 cars in a 2*max size queue. I used two priority queues (for price and mileage) and a HashMap for VIN numbers. 
+
+To conclude, my approach for the most part acheives runtimes that are generally constant or lg n in the worst case. While there is certainly room for improvement, the approach is able to perform tasks with reasonable runtime and space requirements.
+    
+
+ 
+
